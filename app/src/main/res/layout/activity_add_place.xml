@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="place"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,9 +23,47 @@
         android:id="@+id/AddPlacebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="412dp"
         android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/InfoAddTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="info"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddPlacebutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddNameTextView"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/AddSetPlaceOnMapbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set place on  map"
+        app:layout_constraintBottom_toTopOf="@+id/AddPlacebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/InfoAddTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

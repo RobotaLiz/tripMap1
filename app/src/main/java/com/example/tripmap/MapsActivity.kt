@@ -1,7 +1,9 @@
 package com.example.tripmap
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -10,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.tripmap.databinding.ActivityMapsBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -26,6 +29,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val backMapButton = findViewById<FloatingActionButton>(R.id.backMapButton)
+        backMapButton.setOnClickListener {
+           val intent = Intent(this, SearchMenu ::class.java )
+            startActivity(intent)
+        }
     }
 
     /**

@@ -11,16 +11,13 @@ import androidx.savedstate.findViewTreeSavedStateRegistryOwner
 
 class SearchMenu : AppCompatActivity() {
 
-    lateinit var RecyclerView : RecyclerView
-    lateinit var adapter : PlaceOfInterrestRecyclerAdapter
+    lateinit var RecyclerView: RecyclerView
+    lateinit var adapter: PlaceOfInterrestRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_menu)
         adapter = PlaceOfInterrestRecyclerAdapter(this, DataManager.getPlaces())
-       //var placesMap = listOf<PlaceOfInterrest>(PlaceOfInterrest("salen", length = 4.0,
-         //  lat =  61.16411469994586, long =  13.264168529476438),
-
-           //PlaceOfInterrest("malung", length = 5.0, long = 56.0, lat = 25.9))
 
         RecyclerView = findViewById(R.id.RecyclerView)
         RecyclerView.layoutManager = LinearLayoutManager(this,)
@@ -29,6 +26,12 @@ class SearchMenu : AppCompatActivity() {
         listSeachButton.setOnClickListener {
             adapter.notifyDataSetChanged()
         }
+        val backSearchButton = findViewById<Button>(R.id.backButtonInSearch)
+        backSearchButton.setOnClickListener {
+            val intent = Intent(this, MenyActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }
