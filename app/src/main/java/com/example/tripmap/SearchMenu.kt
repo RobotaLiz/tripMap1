@@ -32,6 +32,7 @@ class SearchMenu : AppCompatActivity() {
             startActivity(intent)
         }
 
+
     }
 
 }

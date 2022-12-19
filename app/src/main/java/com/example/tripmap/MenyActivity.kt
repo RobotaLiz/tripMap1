@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MenyActivity : AppCompatActivity() {
 
@@ -27,6 +28,11 @@ class MenyActivity : AppCompatActivity() {
         var listSeachButton = findViewById<Button>(R.id.Searchbutton)
         listSeachButton.setOnClickListener {
             val intent = Intent(this,SearchMenu::class.java )
+            startActivity(intent)
+        }
+        var menyBackButton = findViewById<Button>(R.id.backMenyButton)
+        menyBackButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
