@@ -31,44 +31,34 @@ class MainActivity : AppCompatActivity() {
         var guestButton = findViewById<Button>(R.id.Guestbutton)
         var regButton = findViewById<Button>(R.id.Registerbutton)
 
+
         loginButton.setOnClickListener {
-            logIn()
+            signIn()
         }
         guestButton.setOnClickListener {
             goToMenu()
         }
         regButton.setOnClickListener {
-            signUp()
+            goToRegister()
         }
 
+
     }
+    fun goToRegister(){
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
+
+
     fun goToMenu(){
         val intent = Intent(this, MenyActivity::class.java)
         startActivity(intent)
 
 
     }
-   fun signUp(){
-        val email = PersonTextView.text.toString()
-        val passWord = passWordView.text.toString()
 
-       if(email.isEmpty() || passWord.isEmpty()) {
-           return
-       }
-
-       auth.createUserWithEmailAndPassword(email, passWord)
-           .addOnCompleteListener { task ->
-               if(task.isSuccessful){
-                   Log.d("###", "create success")
-               }else{
-                   Log.d("###", "user not created ${task.exception}")
-               }
-
-
-           }
-
-   }
-    fun logIn(){
+    fun signIn(){
         val email = PersonTextView.text.toString()
         val passWord = passWordView.text.toString()
 
@@ -86,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+
     }
 }
 
