@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/AddPlacebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="188dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="412dp"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,5 +66,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InfoAddTextView" />
+
+    <Button
+        android:id="@+id/setPicturebutton"
+        android:layout_width="188dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:text="set picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPlacebutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,34 +7,46 @@
 
     <TextView
         android:id="@+id/placeTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="106dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="100dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goToMapButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tripLengthTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:text="TextView"
+        android:layout_width="156dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="52dp"
+        android:text="TextView nbbnbbnnmn"
+        android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/placeTextview"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/goToMapButton"
+        app:layout_constraintTop_toBottomOf="@+id/placeTextview"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/goToMapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tripLengthTextView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_map_24" />
+        app:layout_constraintVertical_bias="0.454"
+        app:srcCompat="@drawable/ic_baseline_map_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/recyklerImageView"
+        android:layout_width="103dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@android:drawable/btn_star_big_on" />
 </androidx.constraintlayout.widget.ConstraintLayout>

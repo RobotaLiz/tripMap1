@@ -1,11 +1,13 @@
 package com.example.tripmap
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView
 import androidx.core.content.ContextCompat.startActivity
@@ -26,6 +28,7 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list: List<Plac
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         val place = list[position]
         holder.PlaceTextView.text = place.name
+        DataManager.getPicture(holder.picture, context, place.pictureName)
         holder.lat = place.lat
         holder.long = place.long
         holder.onCreate()
@@ -40,8 +43,8 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list: List<Plac
     // den här bestämmer över en item i listan med information.
     inner class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
+        val picture = itemView.findViewById<ImageView>(R.id.recyklerImageView)
         val PlaceTextView = itemView.findViewById<TextView>(R.id.placeTextview)
-        val TripLenght = itemView.findViewById<TextView>(R.id.tripLengthTextView)
         val mapButton = itemView.findViewById<ImageButton>(R.id.goToMapButton)
         var lat = 0.0
         var long = 0.0

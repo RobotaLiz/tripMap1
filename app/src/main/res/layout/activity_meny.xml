@@ -6,56 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MenyActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="701dp"
+        android:layout_height="1864dp"
+        android:layout_marginTop="-271dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.541"
+        app:srcCompat="@drawable/salenfjall" />
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="194dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="32dp"
-        android:text="Menu"
-        android:textAlignment="viewStart"
-        android:textSize="34sp"
+        android:layout_width="317dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="°----Menu----°"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Mapbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
         android:text="map"
+        app:layout_constraintBottom_toTopOf="@+id/Addbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Searchbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
         android:text="Search"
+        app:layout_constraintBottom_toTopOf="@+id/Mapbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mapbutton" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Addbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="55dp"
         android:text="Add place"
+        app:layout_constraintBottom_toTopOf="@+id/backMenyButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Searchbutton" />
 
     <Button
         android:id="@+id/backMenyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
         android:text="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        PersonTextView = findViewById(R.id.PersonNameTextview)
-        passWordView = findViewById(R.id.PasswordTextview )
+       // PersonTextView = findViewById(R.id.PersonNameTextview)
+        //passWordView = findViewById(R.id.PasswordTextview )
 
         var loginButton = findViewById<Button>(R.id.LogInbutton)
         var guestButton = findViewById<Button>(R.id.Guestbutton)
