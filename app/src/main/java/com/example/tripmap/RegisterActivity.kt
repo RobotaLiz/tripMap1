@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -32,6 +33,11 @@ class RegisterActivity : AppCompatActivity() {
         signUpButton.setOnClickListener {
             signUp()
         }
+        var regBackButton = findViewById<Button>(R.id.registerBackbutton)
+        regBackButton.setOnClickListener {
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun goToMenu(){
         val intent = Intent(this, MenyActivity::class.java)
@@ -50,7 +56,7 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     goToMenu()
-                    Log.d("###", "create success")
+                    Toast.makeText(this, "you hav now signed up", Toast.LENGTH_LONG).show()
                 }else{
                     Log.d("###", "user not created ${task.exception}")
                 }

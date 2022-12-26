@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = Firebase.auth
+        auth.signOut()
 
        // PersonTextView = findViewById(R.id.PersonNameTextview)
         //passWordView = findViewById(R.id.PasswordTextview )
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
 
 
         loginButton.setOnClickListener {
-            signIn()
+            var intent = Intent(this, signin::class.java)
+            startActivity(intent)
         }
         guestButton.setOnClickListener {
             goToMenu()
@@ -58,26 +60,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun signIn(){
-        val email = PersonTextView.text.toString()
-        val passWord = passWordView.text.toString()
-
-        if(email.isEmpty() || passWord.isEmpty()){
-            return
-        }
-        auth.signInWithEmailAndPassword(email, passWord)
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    Log.d("###", "user is Logged In ")
-                    goToMenu()
-                }else{
-                    Log.d("###", "faild Logged in ${task.exception}")
-
-                }
-
-            }
-
-    }
 }
 
 

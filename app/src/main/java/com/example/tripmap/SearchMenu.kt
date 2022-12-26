@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.savedstate.findViewTreeSavedStateRegistryOwner
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SearchMenu : AppCompatActivity() {
 
@@ -17,16 +18,14 @@ class SearchMenu : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_menu)
-        adapter = PlaceOfInterrestRecyclerAdapter(this, DataManager.getPlaces())
+        adapter = PlaceOfInterrestRecyclerAdapter(this, arrayListOf())
+        DataManager.getPlaces(adapter)
 
         RecyclerView = findViewById(R.id.RecyclerView)
         RecyclerView.layoutManager = LinearLayoutManager(this,)
         RecyclerView.adapter = adapter
-        val listSeachButton = findViewById<Button>(R.id.ListSearchbutton)
-        listSeachButton.setOnClickListener {
-            adapter.notifyDataSetChanged()
-        }
-        val backSearchButton = findViewById<Button>(R.id.backButtonInSearch)
+
+        val backSearchButton = findViewById<FloatingActionButton>(R.id.ListOfPlacesBackButton)
         backSearchButton.setOnClickListener {
             val intent = Intent(this, MenyActivity::class.java)
             startActivity(intent)

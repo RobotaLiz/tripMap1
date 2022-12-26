@@ -13,7 +13,7 @@ import androidx.appcompat.view.menu.MenuView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class PlaceOfInterrestRecyclerAdapter(val context : Context, val list: List<PlaceOfInterrest>) :
+class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableList<PlaceOfInterrest>) :
         RecyclerView.Adapter<PlaceOfInterrestRecyclerAdapter.viewHolder>(){
 
         val inflater = LayoutInflater.from(context)

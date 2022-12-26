@@ -15,15 +15,13 @@ import io.grpc.Context
 
 object DataManager {
 
-
     fun addPlace(place : PlaceOfInterrest) {
         var db = Firebase.firestore
         var collection = db.collection("Places")
         collection.add(place)
 
     }
-    fun getPlaces() : List<PlaceOfInterrest>{
-        val listGetPlaces = mutableListOf<PlaceOfInterrest>()
+    fun getPlaces(placeOfInterrestRecyclerAdapter: PlaceOfInterrestRecyclerAdapter){
         var db =  Firebase.firestore
         var collection = db.collection("Places")
 
@@ -31,13 +29,15 @@ object DataManager {
             for (document in documentSnapShot.documents){
                 val items = document.toObject<PlaceOfInterrest>()
                 if(items != null)
-                    listGetPlaces.add(items)
+                    placeOfInterrestRecyclerAdapter.list.add(items)
             }
+            placeOfInterrestRecyclerAdapter.notifyDataSetChanged()
         }
-        return listGetPlaces
     }
 
     fun getPicture (imageView : ImageView, context : android.content.Context, pictureName : String){
+        if(pictureName === "")
+            return
         val storageRef = Firebase.storage.reference
         var spaceRef = storageRef.child(pictureName)
 
@@ -47,6 +47,4 @@ object DataManager {
             .into(imageView)
 
     }
-
-
 }
