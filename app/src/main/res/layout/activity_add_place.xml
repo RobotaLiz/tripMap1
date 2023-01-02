@@ -23,27 +23,12 @@
         android:id="@+id/AddPlacebutton"
         android:layout_width="188dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginTop="100dp"
         android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/InfoAddTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="info"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/AddPlacebutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddNameTextView"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddBackButton"
@@ -58,16 +43,6 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/AddSetPlaceOnMapbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="set place on  map"
-        app:layout_constraintBottom_toTopOf="@+id/AddPlacebutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InfoAddTextView" />
-
-    <Button
         android:id="@+id/setPicturebutton"
         android:layout_width="188dp"
         android:layout_height="47dp"
@@ -77,5 +52,26 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddPlacebutton" />
+
+    <EditText
+        android:id="@+id/textView5"
+        android:layout_width="385dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="32dp"
+        android:gravity="top|start"
+        android:hint="info"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:maxLines="5"
+        android:minLines="5"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+
+
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddNameTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

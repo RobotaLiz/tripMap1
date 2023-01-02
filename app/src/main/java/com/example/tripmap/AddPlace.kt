@@ -26,7 +26,7 @@ class AddPlace : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_place)
 
-        info = findViewById(R.id.InfoAddTextView)
+        info = findViewById(R.id.textView5)
 
         addName = findViewById(R.id.AddNameTextView)
         var addButton = findViewById<Button>(R.id.AddPlacebutton)

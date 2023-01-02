@@ -31,8 +31,10 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
         DataManager.getPicture(holder.picture, context, place.pictureName)
         holder.lat = place.lat
         holder.long = place.long
+        holder.info = place.info
+        holder.name = place.name
+        holder.pictureName = place.pictureName
         holder.onCreate()
-
     }
 
     // denna metod ger recyklerns längd av listan
@@ -46,21 +48,26 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
         val picture = itemView.findViewById<ImageView>(R.id.recyklerImageView)
         val PlaceTextView = itemView.findViewById<TextView>(R.id.placeTextview)
         val mapButton = itemView.findViewById<ImageButton>(R.id.goToMapButton)
+
         var lat = 0.0
         var long = 0.0
-
+        var info = ""
+        var name = ""
+        var pictureName = "";
 
         // den skapar våran clicklyssnare och den anropas från OnBindviewholder
         fun onCreate() {
             mapButton.setOnClickListener {
-                val intent = Intent(context, MapsActivity::class.java)
+                val intent = Intent(context, SkislopeInfo::class.java)
                 intent.putExtra("LAT", lat)
                 intent.putExtra("LONG", long)
+                intent.putExtra("INFO",info)
+                intent.putExtra("NAME",name)
+                intent.putExtra("PICTURENAME",pictureName)
                 context.startActivity(intent)
 
+
             }
+        }
     }
-
-    }
-
 }

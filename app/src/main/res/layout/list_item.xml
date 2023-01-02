@@ -3,41 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#959C9B">
 
     <TextView
         android:id="@+id/placeTextview"
         android:layout_width="106dp"
         android:layout_height="21dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="76dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/goToMapButton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tripLengthTextView"
-        android:layout_width="156dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="52dp"
-        android:text="TextView nbbnbbnnmn"
-        android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/goToMapButton"
-        app:layout_constraintTop_toBottomOf="@+id/placeTextview"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageButton
         android:id="@+id/goToMapButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="31dp"
         android:layout_marginEnd="28dp"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.454"
-        app:srcCompat="@drawable/ic_baseline_map_24"
+        app:srcCompat="@drawable/ic_baseline_info_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
