@@ -13,6 +13,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.tripmap.databinding.ActivityMapsBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -25,7 +28,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -36,29 +39,39 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             startActivity(intent)
         }
     }
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        var db =  Firebase.firestore
+        var collection = db.collection("Places")
+        var list = mutableListOf<PlaceOfInterrest>()
+
+        collection.get().addOnSuccessListener { documentSnapShot ->
+            for (document in documentSnapShot.documents){
+
+                val items = document.toObject<PlaceOfInterrest>()
+                if(items != null)
+                    list.add(items)
+            }
+            for (place in list){
+                val latlong = LatLng(place.lat,place.long)
+                mMap.addMarker(MarkerOptions().position(latlong).title(place.name))
+
+            }
+        }
+
+
 
         val lat = 61.173826
         val long = 12.991915
 
-        if(lat != null && long != null) {
-            val salen = LatLng(lat,long )
-            mMap.addMarker(MarkerOptions().position(salen).title("Marker in salen"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(salen, 6f))
+        val salen = LatLng(lat,long )
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(salen, 6f))
+        mMap.addMarker(MarkerOptions().position(salen).title("Marker in salen"))
 
 
-        }
+
+
 
 
     }

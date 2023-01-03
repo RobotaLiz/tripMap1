@@ -43,13 +43,9 @@ class AddPlace : AppCompatActivity() {
         }
         var btnSelectImage = findViewById<Button>(R.id.setPicturebutton)
         btnSelectImage.setOnClickListener {
-            // PICK INTENT picks item from data
-            // and returned selected item
+
             val galleryIntent = Intent(Intent.ACTION_PICK)
-            // here item is type of image
             galleryIntent.type = "image/*"
-            // ActivityResultLauncher callback
-            //startActivity(galleryIntent)
             imagePickerActivityResult.launch(galleryIntent)
         }
         var backAddButton = findViewById<FloatingActionButton>(R.id.AddBackButton)
@@ -64,20 +60,14 @@ class AddPlace : AppCompatActivity() {
     private var imagePickerActivityResult: ActivityResultLauncher<Intent> =
         registerForActivityResult( ActivityResultContracts.StartActivityForResult()) { result ->
             if (result != null) {
-                // getting URI of selected Image
+
                 val imageUri: Uri? = result.data?.data
 
-                // val fileName = imageUri?.pathSegments?.last()
 
-                // extract the file name with extension
                 val sd = getFileName(applicationContext, imageUri!!)
-
-                // Upload Task with upload to directory 'file'
-                // and name of the file remains same
                 val storageRef = Firebase.storage.reference
                 val uploadTask = storageRef.child("$sd").putFile(imageUri)
 
-                // On success, download the file URL and display it
                 uploadTask.addOnSuccessListener {
                     Log.e("fire","Uploaded")
                     pictureName = "$sd"
