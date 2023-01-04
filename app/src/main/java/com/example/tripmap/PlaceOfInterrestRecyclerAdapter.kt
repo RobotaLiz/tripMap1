@@ -1,6 +1,5 @@
 package com.example.tripmap
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+
 
 class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableList<PlaceOfInterrest>) :
         RecyclerView.Adapter<PlaceOfInterrestRecyclerAdapter.viewHolder>(){
@@ -35,6 +33,9 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
         holder.name = place.name
         holder.pictureName = place.pictureName
         holder.onCreate()
+
+
+
     }
 
     // denna metod ger recyklerns längd av listan
@@ -47,17 +48,20 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
 
         val picture = itemView.findViewById<ImageView>(R.id.recyklerImageView)
         val PlaceTextView = itemView.findViewById<TextView>(R.id.placeTextview)
-        val mapButton = itemView.findViewById<ImageButton>(R.id.goToMapButton)
+        val infoButton = itemView.findViewById<ImageButton>(R.id.goToMapButton)
+        val deleteButton = itemView.findViewById<ImageButton>(R.id.DeleteitemButton)
+        val mapbutton = itemView.findViewById<ImageButton>(R.id.MapButton)
 
         var lat = 0.0
         var long = 0.0
         var info = ""
         var name = ""
         var pictureName = "";
+        var id = ""
 
         // den skapar våran clicklyssnare och den anropas från OnBindviewholder
         fun onCreate() {
-            mapButton.setOnClickListener {
+            infoButton.setOnClickListener {
                 val intent = Intent(context, SkislopeInfo::class.java)
                 intent.putExtra("LAT", lat)
                 intent.putExtra("LONG", long)
@@ -68,6 +72,16 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
 
 
             }
+            deleteButton.setOnClickListener {
+
+
+            }
+            mapbutton.setOnClickListener {
+                var intent = Intent(context, MapsActivity::class.java)
+                context.startActivity(intent)
+
+            }
+
         }
     }
 }

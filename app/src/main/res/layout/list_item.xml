@@ -4,28 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#959C9B">
+    android:background="#929998"
+    android:backgroundTint="#767875">
 
     <TextView
         android:id="@+id/placeTextview"
         android:layout_width="106dp"
         android:layout_height="21dp"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="76dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/goToMapButton"
+        app:layout_constraintStart_toEndOf="@+id/MapButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/goToMapButton"
-        android:layout_width="40dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="28dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginEnd="50dp"
+        android:background="#737878"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/placeTextview"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454"
+        app:layout_constraintVertical_bias="0.425"
         app:srcCompat="@drawable/ic_baseline_info_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -38,4 +43,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ImageButton
+        android:id="@+id/DeleteitemButton"
+        android:layout_width="28dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="#767875"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <ImageButton
+        android:id="@+id/MapButton"
+        android:layout_width="25dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="9dp"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toStartOf="@+id/placeTextview"
+        app:layout_constraintStart_toEndOf="@+id/recyklerImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_map_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

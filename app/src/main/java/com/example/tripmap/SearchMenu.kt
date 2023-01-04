@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Button
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.savedstate.findViewTreeSavedStateRegistryOwner
@@ -30,8 +32,5 @@ class SearchMenu : AppCompatActivity() {
             val intent = Intent(this, MenyActivity::class.java)
             startActivity(intent)
         }
-
-
     }
-
 }

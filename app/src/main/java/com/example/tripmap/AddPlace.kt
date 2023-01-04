@@ -50,7 +50,7 @@ class AddPlace : AppCompatActivity() {
         }
         var backAddButton = findViewById<FloatingActionButton>(R.id.AddBackButton)
         backAddButton.setOnClickListener {
-            var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, MenyActivity::class.java)
             startActivity(intent)
 
         }
