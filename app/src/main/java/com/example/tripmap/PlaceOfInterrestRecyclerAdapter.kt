@@ -2,6 +2,7 @@ package com.example.tripmap
 
 import android.content.Context
 import android.content.Intent
+import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
     // denna metod skapar en item i listan.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
         val itemView = inflater.inflate(R.layout.list_item,parent, false)
-        return viewHolder(itemView)
+        return viewHolder(itemView,this)
     }
 
     // den ger en item/en plats i listan i recyklervyn med all information.
@@ -32,6 +33,7 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
         holder.info = place.info
         holder.name = place.name
         holder.pictureName = place.pictureName
+        holder.id = place.documentid.toString()
         holder.onCreate()
 
 
@@ -44,7 +46,7 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
 
 
     // den här bestämmer över en item i listan med information.
-    inner class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class viewHolder(itemView: View, placeOfInterrestRecyclerAdapter: PlaceOfInterrestRecyclerAdapter) : RecyclerView.ViewHolder(itemView){
 
         val picture = itemView.findViewById<ImageView>(R.id.recyklerImageView)
         val PlaceTextView = itemView.findViewById<TextView>(R.id.placeTextview)
@@ -58,6 +60,9 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
         var name = ""
         var pictureName = "";
         var id = ""
+        var adapter = placeOfInterrestRecyclerAdapter
+
+
 
         // den skapar våran clicklyssnare och den anropas från OnBindviewholder
         fun onCreate() {
@@ -73,12 +78,15 @@ class PlaceOfInterrestRecyclerAdapter(val context : Context, val list:MutableLis
 
             }
             deleteButton.setOnClickListener {
+                DataManager.deletePlace(id, adapterPosition,pictureName, adapter)
 
 
             }
             mapbutton.setOnClickListener {
                 var intent = Intent(context, MapsActivity::class.java)
+                intent.putExtra("name", name)
                 context.startActivity(intent)
+
 
             }
 

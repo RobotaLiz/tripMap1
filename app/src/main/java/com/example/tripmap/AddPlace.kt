@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.OpenableColumns
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -22,11 +23,18 @@ class AddPlace : AppCompatActivity() {
     lateinit var addName: TextView
     lateinit var info : TextView
     var pictureName : String = ""
+    lateinit var latText: EditText
+    lateinit var longText: EditText
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_place)
 
         info = findViewById(R.id.textView5)
+        latText = findViewById<EditText>(R.id.LatEditTextView)
+        longText = findViewById<EditText>(R.id.LongEditTextView)
+
 
         addName = findViewById(R.id.AddNameTextView)
         var addButton = findViewById<Button>(R.id.AddPlacebutton)
@@ -35,8 +43,8 @@ class AddPlace : AppCompatActivity() {
                 name = addName.text.toString(),
                 info = info.text.toString(),
                 pictureName = pictureName,
-                long = 25.8,
-                lat = 45.0
+                long = longText.text.toString().toDouble(),
+                lat = latText.text.toString().toDouble(),
             )
             DataManager.addPlace(place)
             Toast.makeText(this, "you added a new place", Toast.LENGTH_LONG).show()

@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6A6C66"
+    android:backgroundTint="#767875"
     tools:context=".AddPlace">
 
     <EditText
@@ -23,10 +25,10 @@
         android:id="@+id/AddPlacebutton"
         android:layout_width="188dp"
         android:layout_height="47dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="196dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -49,14 +51,14 @@
         android:layout_marginTop="20dp"
         android:text="set picture"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddPlacebutton" />
 
     <EditText
         android:id="@+id/textView5"
-        android:layout_width="385dp"
-        android:layout_height="176dp"
+        android:layout_width="377dp"
+        android:layout_height="79dp"
         android:layout_marginTop="32dp"
         android:gravity="top|start"
         android:hint="info"
@@ -73,5 +75,29 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddNameTextView" />
+
+    <EditText
+        android:id="@+id/LatEditTextView"
+        android:layout_width="377dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Lat"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/LongEditTextView"
+        android:layout_width="377dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Long"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LatEditTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

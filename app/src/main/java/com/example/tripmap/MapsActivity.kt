@@ -45,6 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         var db =  Firebase.firestore
         var collection = db.collection("Places")
         var list = mutableListOf<PlaceOfInterrest>()
+        var clickedPlace = intent.getStringExtra("name")
 
         collection.get().addOnSuccessListener { documentSnapShot ->
             for (document in documentSnapShot.documents){
@@ -57,6 +58,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val latlong = LatLng(place.lat,place.long)
                 mMap.addMarker(MarkerOptions().position(latlong).title(place.name))
 
+                if (clickedPlace != null && clickedPlace == place.name){
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong, 13f))
+                }
             }
         }
 
@@ -66,8 +70,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val long = 12.991915
 
         val salen = LatLng(lat,long )
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(salen, 6f))
-        mMap.addMarker(MarkerOptions().position(salen).title("Marker in salen"))
+        if(clickedPlace == null){
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(salen, 6f))
+        }
+
 
 
 
